@@ -3,7 +3,7 @@
 namespace RichardStyles\EloquentAES\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use RichardStyles\EloquentAES\EloquentAESFacade as EloquentAES;
+use RichardStyles\EloquentAES\EloquentAESFacade;
 
 class AESEncrypted implements CastsAttributes
 {
@@ -22,7 +22,7 @@ class AESEncrypted implements CastsAttributes
             return $value;
         }
         
-        return EloquentAES::decrypt($value);
+        return EloquentAESFacade::decrypt($value);
     }
 
     /**
@@ -40,6 +40,6 @@ class AESEncrypted implements CastsAttributes
             return $value;
         }
         
-        return EloquentAES::encrypt($value);
+        return EloquentAESFacade::encrypt($value);
     }
 }
