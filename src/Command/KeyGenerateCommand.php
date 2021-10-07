@@ -1,9 +1,9 @@
 <?php
-namespace RichardStyles\EloquentAES\Command;
+namespace Compellio\EloquentAES\Command;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use RichardStyles\EloquentAES\EloquentAESFacade;
+use Compellio\EloquentAES\EloquentAESFacade;
 
 class KeyGenerateCommand extends Command
 {

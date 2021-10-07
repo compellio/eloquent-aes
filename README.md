@@ -9,7 +9,7 @@ This package enables an additional layer of security when handling sensitive dat
 
 ## Introduction
 
-This package allows for your Eloquent Encryption to be encrypted using a different AES-256-CBC key. This allows for your regular app:key to be [rotated](https://tighten.co/blog/app-key-and-you/). If you're looking for 4096-RSA encruption then this package [RichardStyles/EloquentEncryption](https://github.com/RichardStyles/EloquentEncryption)
+This package allows for your Eloquent Encryption to be encrypted using a different AES-256-CBC key. This allows for your regular app:key to be [rotated](https://tighten.co/blog/app-key-and-you/). If you're looking for 4096-RSA encruption then this package [Compellio/EloquentEncryption](https://github.com/Compellio/EloquentEncryption)
 
 ## Installation
 
@@ -24,7 +24,7 @@ composer require richardstyles/eloquent-aes
 If you wish to change the key cipher then you will need to publish the config.
 
 ```bash
-php artisan vendor:publish --provider="RichardStyles\EloquentAES\EloquentAESServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Compellio\EloquentAES\EloquentAESServiceProvider" --tag="config"
 ```
 
 To create an Eloquent encryption key, just as you would an app key. This will automatically add to the bottom of your `.env` file.
@@ -47,7 +47,7 @@ This package leverages Laravel's own [custom casting](https://laravel.com/docs/8
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use RichardStyles\EloquentAES\Casts\AESEncrypted;
+use Compellio\EloquentAES\Casts\AESEncrypted;
 
 class SalesData extends Model
 {
@@ -83,7 +83,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you are having general issues with this package, feel free to contact me on [Twitter](https://twitter.com/StylesGoTweet).
 
-If you believe you have found an issue, please report it using the [GitHub issue tracker](https://github.com/RichardStyles/eloquent-aes/issues), or better yet, fork the repository and submit a pull request with a failing test.
+If you believe you have found an issue, please report it using the [GitHub issue tracker](https://github.com/Compellio/eloquent-aes/issues), or better yet, fork the repository and submit a pull request with a failing test.
 
 If you're using this package, I'd love to hear your thoughts. Thanks!
 

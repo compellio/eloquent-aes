@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RichardStyles\EloquentAES\Exceptions;
+namespace Compellio\EloquentAES\Exceptions;
 
 
 class InvalidAESKeyHandler extends \Exception

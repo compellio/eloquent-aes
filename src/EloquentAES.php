@@ -1,14 +1,14 @@
 <?php
 
-namespace RichardStyles\EloquentAES;
+namespace Compellio\EloquentAES;
 
 use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
-use RichardStyles\EloquentAES\Contracts\AESKeyHandler;
-use RichardStyles\EloquentAES\Exceptions\InvalidAESKeyHandler;
-use RichardStyles\EloquentAES\FileSystem\AESKeyStorageHandler;
+use Compellio\EloquentAES\Contracts\AESKeyHandler;
+use Compellio\EloquentAES\Exceptions\InvalidAESKeyHandler;
+use Compellio\EloquentAES\FileSystem\AESKeyStorageHandler;
 
 class EloquentAES implements EncrypterContract
 {

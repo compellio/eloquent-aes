@@ -11,6 +11,6 @@ return [
      * existence and returned for Encryption and Decryption. This allows for keys to
      * be held in secure Vaults or through another provider.
      */
-    'handler' => \RichardStyles\EloquentAES\FileSystem\AESKeyStorageHandler::class,
+    'handler' => \Compellio\EloquentAES\FileSystem\AESKeyStorageHandler::class,
 
 ];

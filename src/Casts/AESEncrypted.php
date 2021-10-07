@@ -1,9 +1,9 @@
 <?php
 
-namespace RichardStyles\EloquentAES\Casts;
+namespace Compellio\EloquentAES\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use RichardStyles\EloquentAES\EloquentAESFacade;
+use Compellio\EloquentAES\EloquentAESFacade;
 
 class AESEncrypted implements CastsAttributes
 {

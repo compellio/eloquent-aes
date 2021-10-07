@@ -1,12 +1,12 @@
 <?php
 
-namespace RichardStyles\EloquentAES\Tests\Unit;
+namespace Compellio\EloquentAES\Tests\Unit;
 
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Crypt;
-use RichardStyles\EloquentAES\EloquentAESFacade as EloquentAES;
-use RichardStyles\EloquentAES\Tests\TestCase;
+use Compellio\EloquentAES\EloquentAESFacade as EloquentAES;
+use Compellio\EloquentAES\Tests\TestCase;
 
 class CollisionAvoidanceTest extends TestCase
 {
