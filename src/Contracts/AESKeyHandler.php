@@ -1,9 +1,9 @@
 <?php
 
 
-namespace RichardStyles\EloquentAES\Contracts;
+namespace Compellio\EloquentAES\Contracts;
 
-use RichardStyles\EloquentAES\Exceptions\AESKeyMissing;
+use Compellio\EloquentAES\Exceptions\AESKeyMissing;
 
 interface AESKeyHandler
 {

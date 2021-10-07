@@ -1,10 +1,10 @@
 <?php
 
-namespace RichardStyles\EloquentAES\FileSystem;
+namespace Compellio\EloquentAES\FileSystem;
 
 use Illuminate\Support\Facades\Config;
-use RichardStyles\EloquentAES\Contracts\AESKeyHandler;
-use RichardStyles\EloquentAES\Exceptions\AESKeyMissing;
+use Compellio\EloquentAES\Contracts\AESKeyHandler;
+use Compellio\EloquentAES\Exceptions\AESKeyMissing;
 
 class AESKeyStorageHandler implements AESKeyHandler
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace RichardStyles\EloquentAES\Tests;
+namespace Compellio\EloquentAES\Tests;
 
-use RichardStyles\EloquentAES\EloquentAESServiceProvider;
+use Compellio\EloquentAES\EloquentAESServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

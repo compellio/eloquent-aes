@@ -1,11 +1,11 @@
 <?php
 
-namespace RichardStyles\EloquentAES;
+namespace Compellio\EloquentAES;
 
 use Illuminate\Encryption\EncryptionServiceProvider;
 use Illuminate\Encryption\MissingAppKeyException;
 use Opis\Closure\SerializableClosure;
-use RichardStyles\EloquentAES\Command\KeyGenerateCommand;
+use Compellio\EloquentAES\Command\KeyGenerateCommand;
 
 class EloquentAESServiceProvider extends EncryptionServiceProvider
 {

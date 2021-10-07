@@ -1,6 +1,6 @@
 <?php
 
-namespace RichardStyles\EloquentAES;
+namespace Compellio\EloquentAES;
 
 use Illuminate\Support\Facades\Facade;
 

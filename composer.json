@@ -1,5 +1,5 @@
 {
-    "name": "richardstyles/eloquent-aes",
+    "name": "compellio/eloquent-aes",
     "description": "A Laravel Eloquent package to allow for model attribute encryption, using a seperate key",
     "type": "library",
     "require": {
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "RichardStyles\\EloquentAES\\": "src"
+            "Compellio\\EloquentAES\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RichardStyles\\EloquentAES\\Tests\\": "tests"
+            "Compellio\\EloquentAES\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -37,10 +37,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RichardStyles\\EloquentAES\\EloquentAESServiceProvider"
+                "Compellio\\EloquentAES\\EloquentAESServiceProvider"
             ],
             "aliases": {
-                "EloquentAES": "RichardStyles\\EloquentAES\\EloquentAesFacade"
+                "EloquentAES": "Compellio\\EloquentAES\\EloquentAesFacade"
             }
         }
     }

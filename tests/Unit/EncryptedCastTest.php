@@ -1,14 +1,14 @@
 <?php
 
 
-namespace RichardStyles\EloquentAES\Tests\Unit;
+namespace Compellio\EloquentAES\Tests\Unit;
 
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Config;
-use RichardStyles\EloquentAES\Casts\AESEncrypted;
-use RichardStyles\EloquentAES\EloquentAESFacade;
-use RichardStyles\EloquentAES\Tests\TestCase;
+use Compellio\EloquentAES\Casts\AESEncrypted;
+use Compellio\EloquentAES\EloquentAESFacade;
+use Compellio\EloquentAES\Tests\TestCase;
 
 class EncryptedCastTest extends TestCase
 {
