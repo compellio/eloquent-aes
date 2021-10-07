@@ -2,7 +2,6 @@
 
 namespace RichardStyles\EloquentAES;
 
-use Illuminate\Encryption\Encrypter;
 use Illuminate\Encryption\EncryptionServiceProvider;
 use Illuminate\Encryption\MissingAppKeyException;
 use Opis\Closure\SerializableClosure;
@@ -46,10 +45,8 @@ class EloquentAESServiceProvider extends EncryptionServiceProvider
      */
     protected function registerEncryptor()
     {
-        $this->app->singleton('eloquentaes', function ($app) {
-            $config = $app->make('config')->get('eloquentaes');
-
-            return new Encrypter($this->parseKey($config), $config['cipher']);
+        $this->app->singleton('eloquentaes', function () {
+            return new EloquentAES;
         });
     }
 

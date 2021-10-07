@@ -3,9 +3,7 @@ namespace RichardStyles\EloquentAES\Command;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use Illuminate\Encryption\Encrypter;
-use Illuminate\Support\Str;
-
+use RichardStyles\EloquentAES\EloquentAESFacade;
 
 class KeyGenerateCommand extends Command
 {
@@ -33,96 +31,23 @@ class KeyGenerateCommand extends Command
      */
     public function handle()
     {
-        $key = $this->generateRandomKey();
+        if(EloquentAESFacade::exists()){
 
-        if ($this->option('show')) {
-            return $this->line('<comment>'.$key.'</comment>');
+            $this->warn('Application key is already set');
+            $this->warn('**********************************************************************');
+            $this->warn('* If you reset your keys you will lose access to any encrypted data. *');
+            $this->warn('**********************************************************************');
+            
+            if ($this->confirm('Do you wish to reset your encryption key?') === false) {
+
+                $this->info('The encryption key has not been overwritten');
+
+                return;
+            }
         }
 
-        // Next, we will replace the application key in the environment file so it is
-        // automatically setup for this developer. This key gets generated using a
-        // secure random byte generator and is later base64 encoded for storage.
-        if (! $this->setKeyInEnvironmentFile($key)) {
-            return;
-        }
+        $this->info('Creating key for Application');
 
-        $this->laravel['config']['eloquentaes.key'] = $key;
-
-        $this->info('Eloquent key set successfully.');
-    }
-
-    /**
-     * Generate a random key for the application.
-     *
-     * @return string
-     */
-    protected function generateRandomKey()
-    {
-        return 'base64:'.base64_encode(
-                Encrypter::generateKey($this->laravel['config']['eloquentaes.cipher'])
-            );
-    }
-
-    /**
-     * Set the application key in the environment file.
-     *
-     * @param  string  $key
-     * @return bool
-     */
-    protected function setKeyInEnvironmentFile($key)
-    {
-        $currentKey = $this->laravel['config']['eloquentaes.key'];
-
-        if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
-            return false;
-        }
-
-        $this->writeNewEnvironmentFileWith($key);
-
-        return true;
-    }
-
-    protected function environmentFileWithExists()
-    {
-        return preg_match(
-            $this->keyReplacementPattern(),
-            file_get_contents($this->laravel->environmentFilePath())
-        );
-    }
-
-    /**
-     * Write a new environment file with the given key.
-     *
-     * @param  string  $key
-     * @return void
-     */
-    protected function writeNewEnvironmentFileWith($key)
-    {
-        if($this->environmentFileWithExists()) {
-            file_put_contents($this->laravel->environmentFilePath(), preg_replace(
-                $this->keyReplacementPattern(),
-                'ELOQUENT_KEY=' . $key,
-                file_get_contents($this->laravel->environmentFilePath())
-            ));
-
-            return;
-        }
-        file_put_contents($this->laravel->environmentFilePath(),
-            file_get_contents($this->laravel->environmentFilePath()) . PHP_EOL .
-            '# You should backup this key in a safe secure place' . PHP_EOL .
-            'ELOQUENT_KEY=' . $key . PHP_EOL
-        );
-    }
-
-    /**
-     * Get a regex pattern that will match env APP_KEY with any random key.
-     *
-     * @return string
-     */
-    protected function keyReplacementPattern()
-    {
-        $escaped = preg_quote('='.$this->laravel['config']['eloquentaes.key'], '/');
-
-        return "/^ELOQUENT_KEY{$escaped}/m";
+        EloquentAESFacade::generateRandomKey();
     }
 }
